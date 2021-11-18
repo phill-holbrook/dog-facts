@@ -3,7 +3,7 @@ os: linux
 files:
   - source: dog-facts.py
     destination: /discord-bot/dog-facts
-  - source: dog-facts-start.sh
+  - source: start-dog-facts.sh
     destination: /discord-bot/dog-facts
 hooks:
   ApplicationStart:
