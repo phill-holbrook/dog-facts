@@ -7,5 +7,5 @@ files:
     destination: /discord-bot/dog-facts
 hooks:
   ApplicationStart:
-    - location: /discord-bot/dog-facts/start-dog-facts.sh
+    - location: discord-bot/dog-facts/start-dog-facts.sh
       timeout: 30
