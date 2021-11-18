@@ -10,3 +10,8 @@ hooks:
   ApplicationStart:
     - location: start-dog-facts.sh
       timeout: 30
+  ApplicationStop:
+    - location: stop-dog-facts.sh
+      timeout: 60
+      runas: root
+      
