@@ -1,0 +1,26 @@
+name: Deploy Dog Facts
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.SECRET }}
+          aws-region: ${{ secrets.REGION }}
+      - name: Initiate CodeDeploy
+        id: deploy
+        run: |
+          aws deploy create-deployment \
+          --application-name discord-bot \
+          --deployment-group-name discord-bot_deploy-group \
+          --deployment-config-name CodeDeployDefault.OneAtATime \
+          --github-location repository=${{ github.repository }},commitId=${{ github.sha }}
+        
