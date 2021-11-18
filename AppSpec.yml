@@ -8,4 +8,4 @@ files:
 hooks:
   ApplicationStart:
     - location: /discord-bot/dog-facts-start.sh
-      timeout: 3600
+      timeout: 30
