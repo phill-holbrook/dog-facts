@@ -1,2 +1,2 @@
-#!/bin/bash
-python3 /discord-bot/dog-facts.py > /dev/null 2> /dev/null < /dev/null &
+#!/usr/bin/python3
+nohup python3 -u /discord-bot/dog-facts/dog-facts.py > dog-facts.log &
