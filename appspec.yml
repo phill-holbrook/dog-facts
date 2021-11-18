@@ -1,9 +1,9 @@
 version: 0.0
 os: linux
 files:
-  - source: ./dog-facts.py
+  - source: dog-facts.py
     destination: /discord-bot/dog-facts
-  - source: ./dog-facts-start.sh
+  - source: dog-facts-start.sh
     destination: /discord-bot/dog-facts
 hooks:
   ApplicationStart:
