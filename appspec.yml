@@ -4,6 +4,9 @@ files:
   - source: dog-facts.py
     destination: /discord-bot/dog-facts
 hooks:
+  AfterInstall:
+    - location: install-dependencies.sh
+      timeout: 300
   ApplicationStart:
     - location: start-dog-facts.sh
       timeout: 30
