@@ -1,0 +1,11 @@
+version: 0.0
+os: linux
+files:
+  - source: dog-facts.py
+    destination: /discord-bot
+  - source: dog-facts-start.sh
+    destination: /discord-bot
+hooks:
+  ApplicationStart:
+    - location: /discord-bot/dog-facts-start.sh
+      timeout: 3600
