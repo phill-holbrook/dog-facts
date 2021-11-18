@@ -3,9 +3,7 @@ os: linux
 files:
   - source: dog-facts.py
     destination: /discord-bot/dog-facts
-  - source: start-dog-facts.sh
-    destination: /discord-bot/dog-facts
 hooks:
   ApplicationStart:
-    - location: discord-bot/dog-facts/start-dog-facts.sh
+    - location: start-dog-facts.sh
       timeout: 30
