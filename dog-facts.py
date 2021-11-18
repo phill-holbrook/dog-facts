@@ -12,9 +12,11 @@ token = os.environ.get('TOKEN')
 
 @bot.command(name='DogFact')
 async def getDogFact(ctx):
-    url = "https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?index=" + str(random.randint(1,430))
+
+    factid = str(random.randint(1,430))
+    url = "https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?index=" + factid
     r = requests.get(url)
-    fact = json.loads(r.text)[0]["fact"]
+    fact = "Fact #" + factid + ": " + json.loads(r.text)[0]["fact"]
 
     await ctx.send(fact)
 
