@@ -10,6 +10,7 @@ load_dotenv()
 bot = commands.Bot(command_prefix='!', case_insensitive=True)
 token = os.environ.get('TOKEN')
 
+@bot.remove_command('help')
 @bot.command(name='help')
 async def getHelp(ctx):
 
