@@ -21,7 +21,7 @@ async def getHelp(ctx):
 @bot.command(name='about')
 async def getAbout(ctx):
 
-    resp = 'Hi! I\'m DogFacts. My creator made me as part of a side project to learn about Python, GitHub Actions, and AWS CodePipeline. To see what commands I currently support, use `!help`. \n\n See my source code here: https://github.com/phill-holbrook/dog-facts'
+    resp = 'Hi! I\'m **DogFacts**. My creator made me as part of a side project to learn about Python, GitHub Actions, and AWS CodePipeline. To see what commands I currently support, use `!help`. \n\n See my source code here: https://github.com/phill-holbrook/dog-facts'
 
     await ctx.send(resp)
 
@@ -31,7 +31,7 @@ async def getDogFact(ctx):
     factid = str(random.randint(1,430))
     url = "https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?index=" + factid
     r = requests.get(url)
-    fact = "Dog Fact #" + factid + ": " + json.loads(r.text)[0]["fact"]
+    fact = "**Dog Fact #" + factid + ":** " + json.loads(r.text)[0]["fact"]
 
     await ctx.send(fact)
 
@@ -41,7 +41,7 @@ async def getCatFact(ctx):
     factid = str(random.randint(1,430)) #The fact id is just completely random lol
     url = "https://catfact.ninja/fact"
     r = requests.get(url)
-    fact = "Cat Fact #" + factid + ": " + json.loads(r.text)["fact"]
+    fact = "**Cat Fact #" + factid + ":** " + json.loads(r.text)["fact"]
 
     await ctx.send(fact)
 
