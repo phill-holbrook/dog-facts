@@ -28,17 +28,17 @@ async def getAbout(ctx):
 @bot.command(name='DogFact')
 async def getDogFact(ctx):
 
-    factid = str(random.randint(1,430))
-    url = "https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?index=" + factid
+    factid = str(random.randint(1,1000)) #The fact id is just completely random lol
+    url = "https://dog-api.kinduff.com/api/facts"
     r = requests.get(url)
-    fact = "**Dog Fact #" + factid + ":** " + json.loads(r.text)[0]["fact"]
+    fact = "**Dog Fact #" + factid + ":** " + json.loads(r.text)["facts"][0]
 
     await ctx.send(fact)
 
 @bot.command(name='CatFact')
 async def getCatFact(ctx):
 
-    factid = str(random.randint(1,430)) #The fact id is just completely random lol
+    factid = str(random.randint(1,1000)) #The fact id is just completely random lol
     url = "https://catfact.ninja/fact"
     r = requests.get(url)
     fact = "**Cat Fact #" + factid + ":** " + json.loads(r.text)["fact"]
