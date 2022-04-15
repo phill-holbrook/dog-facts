@@ -3,19 +3,21 @@ os: linux
 files:
   - source: dog-facts.py
     destination: /discord-bot/dog-facts
+  - source: dogfacts.service
+    destination: /etc/systemd/system
 hooks:
   AfterInstall:
-    - location: install-dependencies.sh
+    - location: deployment-scripts/install-dependencies.sh
       timeout: 300
   ApplicationStart:
-    - location: start-dog-facts.sh
+    - location: deployment-scripts/start-dog-facts.sh
       timeout: 30
   ApplicationStop:
-    - location: stop-dog-facts.sh
+    - location: deployment-scripts/stop-dog-facts.sh
       timeout: 60
       runas: root
   ValidateService:
-    - location: validate-dog-facts.sh
+    - location: deployment-scripts/validate-dog-facts.sh
       timeout: 30
       runas: root
       

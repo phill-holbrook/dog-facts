@@ -1,0 +1,14 @@
+[Unit]
+Description=Dog Facts Discord Bot
+After=multi-user.target
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/usr/bin/python3 -u \
+    /discord-bot/dog-facts/dog-facts.py \
+    > /discord-bot/dog-facts/dog-facts.log \
+    2> /discord-bot/dog-facts/dog-facts.err &
+
+[Install]
+WantedBy=multi-user.target
