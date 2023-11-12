@@ -18,11 +18,16 @@ async def getHelp(ctx):
 
     await ctx.send(resp)
 
-@bot.command(name='about')
-async def getAbout(ctx):
+# @bot.command(name='about')
+# async def getAbout(ctx):
 
-    resp = 'Hi! I\'m **DogFacts**. My creator made me as part of a side project to learn about Python, GitHub Actions, and AWS CodePipeline. To see what commands I currently support, use `!help`. \n\n See my source code here: https://github.com/phill-holbrook/dog-facts'
+#     resp = 'Hi! I\'m **DogFacts**. My creator made me as part of a side project to learn about Python, GitHub Actions, and AWS CodePipeline. To see what commands I currently support, use `!help`. \n\n See my source code here: https://github.com/phill-holbrook/dog-facts'
 
+#     await ctx.send(resp)
+
+@bot.slash_command(name='about', description='Get information about the bot.')
+async def get_about(ctx):
+    resp = 'Hi! I\'m **DogFacts**. My creator made me as part of a side project to learn about Python, GitHub Actions, and AWS CodePipeline. To see what commands I currently support, use `/help`.\n\nSee my source code here: https://github.com/phill-holbrook/dog-facts'
     await ctx.send(resp)
 
 @bot.command(name='DogFact')
