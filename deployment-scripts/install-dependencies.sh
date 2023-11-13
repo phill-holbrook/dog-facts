@@ -1,6 +1,6 @@
 #!/bin/bash
 pip install requests
-pip install discord
+pip install nextcord
 pip install python-dotenv
 
 systemctl daemon-reload
