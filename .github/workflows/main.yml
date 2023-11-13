@@ -16,7 +16,7 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::993032350888:role/discord-bot-runner_codedeploy
+          role-to-assume: ${{ secrets.AWSROLE }}
           aws-region: ${{ secrets.REGION }}
       - name: Initiate CodeDeploy
         id: deploy
