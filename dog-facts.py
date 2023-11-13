@@ -4,10 +4,14 @@ import requests
 import os
 import random
 from dotenv import load_dotenv
+from discord import Intents
+
+intents = Intents.default()
+intents.message_content = True
 
 load_dotenv()
 
-bot = commands.Bot(command_prefix='!', case_insensitive=True)
+bot = commands.Bot(command_prefix='!', case_insensitive=True, intents=intents)
 token = os.environ.get('TOKEN')
 
 @bot.remove_command('help')
