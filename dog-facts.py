@@ -4,9 +4,16 @@ import requests
 import os
 import random
 from dotenv import load_dotenv
-from nextcord import Intents
+import nextcord
+import logging
 
-intents = Intents.default()
+logger = logging.getLogger('nextcord')
+logger.setLevel(logging.DEBUG)
+handler = logging.FileHandler(filename='dogfacts.log', encoding='utf-8', mode='w')
+handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
+logger.addHandler(handler)
+
+intents = nextcord.Intents.default()
 intents.message_content = True
 
 load_dotenv()
