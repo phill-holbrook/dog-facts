@@ -25,7 +25,7 @@ token = os.environ.get('TOKEN')
 @bot.slash_command(name='help', description='Get help with DogFacts!')
 async def getHelp(ctx):
 
-    resp = 'Current supported commands:\n - `/dogfact`: Gets a random fact about dogs.\n - `/catfact`: Gets a random fact about cats.\n - `/help`: Shows this message.\n - `/about`: Shows information about me.'
+    resp = 'Current supported commands:\n- `/dogfact`: Gets a random fact about dogs.\n- `/catfact`: Gets a random fact about cats.\n- `/help`: Shows this message.\n- `/about`: Shows information about me.'
 
     await ctx.send(resp)
 
