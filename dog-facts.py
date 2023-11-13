@@ -6,6 +6,7 @@ import random
 from dotenv import load_dotenv
 import nextcord
 import logging
+import subprocess
 
 logger = logging.getLogger('nextcord')
 logger.setLevel(logging.DEBUG)
@@ -28,6 +29,19 @@ token = os.environ.get('TOKEN')
 #     resp = 'Current supported commands:\n - `/dogfact`: Gets a random fact about dogs.\n - `/catfact`: Gets a random fact about cats.\n - `/help`: Shows this message.\n - `/about`: Shows information about me.'
 
 #     await ctx.send(resp)
+
+@bot.slash_command(name='uptime')
+async def uptime(ctx):
+    
+    process = subprocess.Popen(['systemctl', 'status', 'dogfacts'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    output, error = process.communicate()
+    output_str = output.decode('utf-8')
+
+    grep_process = subprocess.Popen(['grep', 'Active'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    grep_output, grep_error = grep_process.communicate(input=output_str.encode('utf-8'))
+    resp = grep_output.decode('utf-8')  
+
+    await ctx.send(resp)
 
 @bot.slash_command(name='about', description='Get information about DogFacts!')
 async def get_about(ctx):
