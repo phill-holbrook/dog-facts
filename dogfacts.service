@@ -6,9 +6,7 @@ After=multi-user.target
 Type=simple
 Restart=always
 ExecStart=/usr/bin/python3 -u \
-    /discord-bot/dog-facts/dog-facts.py \
-    > /discord-bot/dog-facts/dog-facts.log \
-    2> /discord-bot/dog-facts/dog-facts.err &
+    /discord-bot/dog-facts/dog-facts.py
 
 [Install]
 WantedBy=multi-user.target
